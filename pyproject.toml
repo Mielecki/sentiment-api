@@ -1,0 +1,38 @@
+[project]
+name = "sentiment-api"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Mielecki", email = "mieleckibartek@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "clean-text>=0.7.1",
+    "joblib>=1.6.0",
+    "scikit-learn>=1.9.1",
+    "sentence-transformers>=6.1.0",
+    "torch>=2.14.1",
+]
+
+[project.scripts]
+sentiment-api = "sentiment_api:main"
+
+[build-system]
+requires = ["uv_build>=0.12.15,<0.13.0"]
+build-backend = "uv_build"
+
+[[tool.uv.index]]
+name = "pytorch-cu130"
+url = "https://download.pytorch.org/whl/cu130"
+explicit = true
+
+[tool.uv.sources]
+torch = [
+  { index = "pytorch-cu130", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
+]
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.6.2",
+]
