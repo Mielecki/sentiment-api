@@ -9,10 +9,12 @@ authors = [
 requires-python = ">=3.13"
 dependencies = [
     "clean-text>=0.7.1",
+    "fastapi>=0.142.2",
     "joblib>=1.6.0",
     "scikit-learn>=1.9.1",
     "sentence-transformers>=6.1.0",
     "torch>=2.14.1",
+    "uvicorn>=0.54.0",
 ]
 
 [project.scripts]
@@ -34,5 +36,14 @@ torch = [
 
 [dependency-groups]
 dev = [
+    "httpx2>=2.13.1",
     "pre-commit>=4.6.2",
+    "pytest>=9.1.1",
+]
+
+[tool.pytest]
+minversion = "9.0"
+addopts = ["-ra", "-q"]
+testpaths = [
+    "tests"
 ]
