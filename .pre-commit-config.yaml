@@ -14,3 +14,4 @@ repos:
         additional_dependencies:
           - pydantic>=2.13.5
           - fastapi>=0.142.2
+          - pytest>=9.0.0
